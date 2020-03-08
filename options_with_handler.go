@@ -90,7 +90,7 @@ func sendMessage(o *options, alert []byte) {
 			body = "\"" + body + "\"" + " alert starts at " + parsedStartsAt.Format(time.RFC1123)
 		}
 
-		message, err := twilio.NewCall(c, o.Sender, o.Receiver, "http://demo.twilio.com/docs/voice.xml")
+		message, err := twilio.NewCall(c, o.Sender, o.Receiver, twilio.Callback("http://demo.twilio.com/docs/voice.xml"))
 		if err != nil {
 			log.Error(err)
 		} else {
